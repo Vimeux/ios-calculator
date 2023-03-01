@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { Historic } from "../Historic";
 
-function Calculator() {
+export const Calculator = () => {
   const [result, setResult] = useState("");
   const [isCalculated, setIsCalculated] = useState(false);
+  const [history, setHistory] = useState([]);
 
   const handleClick = (e) => {
     if (isCalculated) {
@@ -23,12 +25,15 @@ function Calculator() {
 
   const calculate = () => {
     try {
+      setHistory([...history, [result, eval(result).toString()]]);
       setResult(eval(result).toString());
       setIsCalculated(true);
     } catch (error) {
       setResult("Error");
     }
   };
+
+  console.table(history);
 
   return (
     <div className="content">
@@ -91,8 +96,7 @@ function Calculator() {
           </button>
         </div>
       </div>
+      <Historic history={history} />
     </div>
   );
-}
-
-export default Calculator;
+};
