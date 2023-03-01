@@ -2,9 +2,15 @@ import React, { useState } from "react";
 
 function Calculator() {
   const [result, setResult] = useState("");
+  const [isCalculated, setIsCalculated] = useState(false);
 
   const handleClick = (e) => {
-    setResult(result.concat(e.target.name));
+    if (isCalculated) {
+      setResult(e.target.name);
+      setIsCalculated(false);
+    } else {
+      setResult(result.concat(e.target.name));
+    }
   };
 
   const clear = () => {
@@ -18,6 +24,7 @@ function Calculator() {
   const calculate = () => {
     try {
       setResult(eval(result).toString());
+      setIsCalculated(true);
     } catch (error) {
       setResult("Error");
     }
