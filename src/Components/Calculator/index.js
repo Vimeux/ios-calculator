@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Historic } from "../Historic";
+import Guide from "../Guide";
 
 export const Calculator = () => {
   const [result, setResult] = useState("");
@@ -89,7 +90,18 @@ export const Calculator = () => {
           </button>
         </div>
       </div>
-      <Historic history={history} />
+      <div
+        style={{
+          width: "50%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Historic history={history} />
+        <Guide />
+      </div>
     </div>
   );
 };

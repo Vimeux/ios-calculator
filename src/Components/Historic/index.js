@@ -1,6 +1,6 @@
 export const Historic = ({ history }) => {
   return (
-    <div className="historic">
+    <div className="historic" id="history">
       <h2>Historique</h2>
       <table>
         <thead>
