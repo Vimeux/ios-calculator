@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Guide from "../Guide";
 
 function Calculator() {
   const [result, setResult] = useState("");
@@ -84,6 +85,7 @@ function Calculator() {
           </button>
         </div>
       </div>
+      <Guide />
     </div>
   );
 }
