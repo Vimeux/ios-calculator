@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Historic } from "../Historic";
+import Guide from "../Guide";
 
 export const Calculator = () => {
   const [result, setResult] = useState("");
@@ -97,6 +98,7 @@ export const Calculator = () => {
         </div>
       </div>
       <Historic history={history} />
+      <Guide />
     </div>
   );
 };
