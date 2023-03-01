@@ -38,7 +38,7 @@ body {
   width: 85px;
   height: 85px;
   font-size: 36px;
-  border-radius: 50%;
+  border-radius: 45px;
   border: none;
   outline: none;
   color: white;
@@ -53,6 +53,7 @@ body {
 
 .key.zero {
   grid-column: 1 / span 2;
+  width: 100%;
 }
 
 .key.equals {
@@ -60,6 +61,8 @@ body {
 }
 
 .key.clear {
+  grid-column: 1 / span 2;
+  width: 100%;
   background-color: #d4d4d2;
   color: black;
 }
