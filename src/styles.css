@@ -1,0 +1,74 @@
+body {
+  padding: 0;
+}
+
+.content {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
+.calculator {
+  margin: 0 auto;
+  width: 400px;
+}
+.display {
+  font-size: 50px;
+  color: white;
+  text-align: right;
+  margin-bottom: 30px;
+  width: 90%;
+  overflow: hidden;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  justify-items: center;
+}
+
+.key {
+  width: 85px;
+  height: 85px;
+  font-size: 36px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #8c8c8c;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.key.operator {
+  background-color: #ff9500;
+}
+
+.key.zero {
+  grid-column: 1 / span 2;
+}
+
+.key.equals {
+  background-color: #ff2d55;
+}
+
+.key.clear {
+  background-color: #d4d4d2;
+  color: black;
+}
+
+.key.backspace {
+  background-color: #a5a5a5;
+  color: black;
+}
+
+.key.export {
+  background-color: #4cd964;
+}
