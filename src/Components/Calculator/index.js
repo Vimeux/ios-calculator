@@ -27,7 +27,17 @@ export const Calculator = () => {
     }
   };
 
-  console.table(history);
+  const exportToCSV = () => {
+    const header = "Expression,Resultat\n";
+    const csv =
+      header + history.map(([exp, res]) => `${exp},${res}`).join("\n");
+    const csvBlob = new Blob([csv], { type: "text/csv" });
+    const csvUrl = URL.createObjectURL(csvBlob);
+    const hiddenLink = document.createElement("a");
+    hiddenLink.href = csvUrl;
+    hiddenLink.download = "calculator_history.csv";
+    hiddenLink.click();
+  };
 
   return (
     <div className="content">
@@ -87,6 +97,9 @@ export const Calculator = () => {
           </button>
           <button className="key equals" onClick={calculate}>
             =
+          </button>
+          <button className="key" onClick={exportToCSV}>
+            Export CSV
           </button>
         </div>
       </div>
