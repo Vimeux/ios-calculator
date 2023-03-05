@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Historic } from "../Historic";
 import Guide from "../Guide";
 
@@ -16,12 +16,27 @@ export const Calculator = () => {
     }
   };
 
+  const handleKeyDown = (event) => {
+    const key = event.key;
+    if (key === "Enter") {
+      calculate();
+    } else if (key === "Escape") {
+      clear();
+    } else if (key === "Backspace") {
+      backspace();
+    } else if (/[-+*/.\d]/.test(key)) {
+      handleClick({ target: { name: key } });
+    }
+  };
+
   const clear = () => {
     setResult("");
+    setIsCalculated(false);
   };
 
   const backspace = () => {
     setResult(result.slice(0, -1));
+    setIsCalculated(false);
   };
 
   const calculate = () => {
@@ -31,6 +46,7 @@ export const Calculator = () => {
       setIsCalculated(true);
     } catch (error) {
       setResult("Error");
+      setIsCalculated(false);
     }
   };
 
@@ -45,6 +61,13 @@ export const Calculator = () => {
     hiddenLink.download = "calculator_history.csv";
     hiddenLink.click();
   };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  });
 
   return (
     <div className="content">
